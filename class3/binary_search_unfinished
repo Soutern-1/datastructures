@@ -1,0 +1,14 @@
+list = [12,23,25,36,39,40,44,45,50,59,61,62,67,70,89,91,93,100]
+
+input_number = int(input("What is the input number: "))
+
+start = 0
+end = len(list) -1
+mid = (start + end) // 2
+
+if input > list[mid]:
+    # change the start
+elif input < list[mid]:
+    end = 
+elif input == list[mid]:
+    break
