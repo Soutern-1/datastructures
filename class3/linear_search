@@ -1,0 +1,17 @@
+list = [33,21,55,19,20,84,13,21,76,54]
+
+
+# Linear Search
+# Looks through every given input
+
+input_number = int(input("What is the input number: "))
+index = -1
+
+for i in list:
+    index +=1
+    if i == input_number:
+        print(f"Number found in list at position:{index}")
+        break
+else:
+    print("Number not in list")
+
