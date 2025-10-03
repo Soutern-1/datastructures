@@ -1,0 +1,57 @@
+class Stack():
+    def __init__(self):
+        self.stack = []
+    def push(self,item):
+        self.stack.append(item)
+        print(self.stack)
+    def pickup(self,):
+        if len(self.stack) >= 1:
+            temp = self.stack[-1]
+            self.stack.pop(-1)
+            # print(self.stack)
+            return[temp]
+        else:
+            print("Stack underflow")
+    def print(self):
+        for i in range (len(self.stack)):
+            print("Printing item", self.stack[-1], secondary_stack.stack)
+            self.stack.pop
+        
+main_stack = Stack()
+secondary_stack = Stack()
+
+def main():
+    print("-----------------")
+    choice = str(input("Operation: Add,Print,View: "))
+    if choice == "Add":
+        item = str(input("What is the item to add?: "))
+        main_stack.push(item)
+        main()
+    elif choice == "Print":
+        if len(main_stack.stack) > 0:
+            if len(secondary_stack.stack) ==0:
+                # print("Printing all items in que", main_stack)
+                for i in range (len(main_stack.stack)):
+                    temp = main_stack.pickup()
+                    secondary_stack.stack.append(temp)
+                # print("printed in this order", secondary_stack.stack)
+                print("Items from main moved to secondary. ", main_stack.stack, secondary_stack.stack)
+                main()
+        else:
+            print('no items in the main stack to push to out stack')
+
+        main()
+
+        print("Printing item", secondary_stack.stack[-1])
+        secondary_stack.stack.pop()
+
+        
+    elif choice == "View":
+        print("Main Stack",main_stack.stack)
+        print("2nd Stack", secondary_stack.stack)
+        main()
+    else:
+        print("Invalid operation,try again")
+        main()
+
+main()
