@@ -1,0 +1,67 @@
+
+# Class
+class Node():
+    def __init__(self,value):
+        self.value = value
+        self.Rightchild = None
+        self.Leftchild = None
+
+# Insert function
+def insert(root, key):
+    if root is None:
+        return Node(key)
+    if key < root.value:
+        root.Leftchild = insert(root.Leftchild, key)
+    else:
+        root.Rightchild = insert(root.Rightchild, key)
+    # print("Value added")
+    return root
+
+
+def inorder(root):
+    if root:
+        inorder(root.Leftchild)
+        print(root.value,end=" ")
+        # pint("value printed")
+        inorder(root.Rightchild)
+
+
+def delete(root,del_value):
+    if root is None:
+        return root
+    # Search for the node that is to be deleted
+    if del_value < root.value:
+        root.Leftchild = delete(root.Leftchild, del_value)
+    elif del_value > root.value:
+        root.Rightchild = delete(root.Rightchild,del_value)
+    else:
+        # root value = del_value - node to be deleted is found
+        if root.Leftchild == None and root.Rightchild == None:
+            return None
+        elif root.Rightchild == None:
+            return root.Leftchild
+        elif root.Leftchild == None:
+            return root.Rightchild
+        else:
+            temp = root.Rightchild
+            while temp.Leftchild:
+                temp = temp.Leftchild
+            root.value = temp.value
+            root.Rightchild = delete(root.Rightchild, temp.value)
+    return root
+
+
+root = Node(50)
+
+nums = [30,20,40,70,60,80]
+for x in nums:
+    root = insert(root,x)
+
+print(root.Leftchild.Leftchild.value)
+inorder(root)
+print(" ")
+new_root = delete(root, 50)
+inorder(new_root)
+
+# ---------------------------------------------
+
