@@ -1,0 +1,20 @@
+class Graph():
+    def __init__(self,maxnodecount):
+        self.maxnodecount = maxnodecount
+        self.neighbours = [[]* maxnodecount for i in range(self.maxnodecount)]
+    
+    def add_edges(self,end1,end2):
+        self.neighbours[end1].append(end2)
+        self.neighbours[end2].append(end1)
+
+graph = Graph(5)
+
+print(graph.neighbours)
+graph.add_edges(0,1)
+graph.add_edges(2,3)
+graph.add_edges(0,4)
+graph.add_edges(0,2)
+graph.add_edges(2,4)
+graph.add_edges(0,3)
+
+print(graph.neighbours)
